@@ -1,0 +1,65 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional, getService, resolveAssetUrl, resolveAssetAlt } from "../../lib/adapter";
+
+type ServicesSection = Extract<Section, { type: "services" }>;
+
+interface Props {
+  section: ServicesSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading = getStringOptional(site, section.headingStringId);
+const intro   = getStringOptional(site, section.introStringId);
+const variant = section.variant ?? "cards";
+
+const services = section.serviceIds.map(id => {
+  const s = getService(site, id);
+  return {
+    id: s.id,
+    title:    getString(site, s.titleStringId),
+    desc:     getString(site, s.descriptionStringId),
+    price:    getStringOptional(site, s.priceStringId),
+    ctaLabel: getStringOptional(site, s.ctaLabelStringId),
+    ctaHref:  s.ctaHref,
+    iconUrl:  s.iconAssetId ? resolveAssetUrl(site, s.iconAssetId) : null,
+    iconAlt:  s.iconAssetId ? resolveAssetAlt(site, s.iconAssetId) : "",
+  };
+});
+
+const cardClass = variant === "list"
+  ? "flex flex-col"
+  : "md:grid-cols-2 lg:grid-cols-4";
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    {(heading || intro) && (
+      <div class="text-center mb-14 max-w-2xl mx-auto">
+        {heading && <h2 class="text-3xl md:text-4xl mb-3">{heading}</h2>}
+        {intro && <p class="text-muted">{intro}</p>}
+      </div>
+    )}
+    <div class:list={["grid gap-6", variant === "list" ? "max-w-3xl mx-auto" : cardClass]}>
+      {services.map(s => (
+        <article class="bg-surface border border-border rounded-md p-6 shadow-soft hover:shadow-card transition-shadow">
+          {s.iconUrl && (
+            <div class="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-sm bg-accent-tint">
+              <img src={s.iconUrl} alt={s.iconAlt} class="w-6 h-6" />
+            </div>
+          )}
+          <h3 class="text-xl mb-2">{s.title}</h3>
+          <p class="text-muted leading-relaxed text-sm mb-4">{s.desc}</p>
+          {s.price && <p class="text-accent font-medium mb-4">{s.price}</p>}
+          {s.ctaLabel && s.ctaHref && (
+            <a href={s.ctaHref} class="text-sm text-accent hover:text-accent-dark transition-colors inline-flex items-center gap-1">
+              {s.ctaLabel} <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

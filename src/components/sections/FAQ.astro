@@ -1,0 +1,43 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional } from "../../lib/adapter";
+
+type FAQSection = Extract<Section, { type: "faq" }>;
+
+interface Props {
+  section: FAQSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading = getStringOptional(site, section.headingStringId);
+const intro   = getStringOptional(site, section.introStringId);
+
+const items = section.items.map(item => ({
+  question: getString(site, item.questionStringId),
+  answer:   getString(site, item.answerStringId),
+}));
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="max-w-3xl mx-auto">
+    {(heading || intro) && (
+      <div class="text-center mb-12">
+        {heading && <h2 class="text-3xl md:text-4xl mb-3">{heading}</h2>}
+        {intro && <p class="text-muted">{intro}</p>}
+      </div>
+    )}
+    <div class="divide-y divide-border border-y border-border">
+      {items.map(({ question, answer }) => (
+        <details class="group py-5">
+          <summary class="cursor-pointer list-none flex justify-between items-center gap-4 text-ink hover:text-accent transition-colors">
+            <span class="font-display text-lg">{question}</span>
+            <span class="text-accent shrink-0 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-3 text-muted leading-relaxed">{answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

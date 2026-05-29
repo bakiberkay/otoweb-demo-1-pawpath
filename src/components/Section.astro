@@ -1,0 +1,38 @@
+---
+import type { Site } from "../schema";
+import { CORE_SECTION_TYPES } from "../../theme.manifest";
+
+import Hero         from "./sections/Hero.astro";
+import TextBlock    from "./sections/TextBlock.astro";
+import RichText     from "./sections/RichText.astro";
+import Features     from "./sections/Features.astro";
+import Services     from "./sections/Services.astro";
+import Testimonials from "./sections/Testimonials.astro";
+import Gallery      from "./sections/Gallery.astro";
+import FAQ          from "./sections/FAQ.astro";
+import CTA          from "./sections/CTA.astro";
+import ContactForm  from "./sections/ContactForm.astro";
+
+interface Props {
+  section: Site["sections"][string];
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const registered = new Set<string>(CORE_SECTION_TYPES);
+if (!registered.has(section.type)) {
+  throw new Error(`[Section] unknown section type "${section.type}" in section "${section.id}". Theme "soft" does not register this type — halting per the strict-types contract.`);
+}
+---
+
+{section.type === "hero"         && <Hero         section={section} site={site} />}
+{section.type === "text-block"   && <TextBlock    section={section} site={site} />}
+{section.type === "rich-text"    && <RichText     section={section} site={site} />}
+{section.type === "features"     && <Features     section={section} site={site} />}
+{section.type === "services"     && <Services     section={section} site={site} />}
+{section.type === "testimonials" && <Testimonials section={section} site={site} />}
+{section.type === "gallery"      && <Gallery      section={section} site={site} />}
+{section.type === "faq"          && <FAQ          section={section} site={site} />}
+{section.type === "cta"          && <CTA          section={section} site={site} />}
+{section.type === "contact-form" && <ContactForm  section={section} site={site} />}

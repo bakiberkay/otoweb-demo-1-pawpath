@@ -1,0 +1,133 @@
+---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+
+import type { Site } from "../schema";
+import Section from "../components/Section.astro";
+import { getString, getStringOptional, getSocialLink, pageHref, resolveAssetUrl } from "../lib/adapter";
+
+interface Props {
+  site: Site;
+  pageId: string;
+}
+
+const { site, pageId } = Astro.props;
+
+const page = site.pages.find(p => p.id === pageId);
+if (!page) throw new Error(`[Site] page "${pageId}" not found`);
+
+const sections = page.sectionIds.map(sid => {
+  const s = site.sections[sid];
+  if (!s) throw new Error(`[Site] section "${sid}" referenced by page "${pageId}" not found`);
+  return s;
+});
+
+const siteTitle      = getString(site, site.meta.seo.defaultTitleStringId);
+const siteDescDefault = getString(site, site.meta.seo.defaultDescriptionStringId);
+const pageTitle      = getStringOptional(site, page.seo?.titleStringId) ?? siteTitle;
+const description    = getStringOptional(site, page.seo?.descriptionStringId) ?? siteDescDefault;
+const ogImageId      = page.seo?.ogImageAssetId ?? site.meta.seo.defaultOgImageAssetId;
+const ogImageUrl     = ogImageId ? resolveAssetUrl(site, ogImageId) : null;
+const brandName      = getString(site, site.meta.brand.nameStringId);
+const tagline        = getStringOptional(site, site.meta.brand.taglineStringId);
+
+const navPages = site.pages.filter(p => p.editorMeta.showInNav);
+
+const contactEmail = getStringOptional(site, site.meta.contact.emailStringId);
+const contactPhone = getStringOptional(site, site.meta.contact.phoneStringId);
+const contactAddr  = getStringOptional(site, site.meta.contact.addressStringId);
+---
+
+<!doctype html>
+<html lang={site.i18n.canonical}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title"       content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type"        content="website" />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+
+    {page.seo?.noindex && <meta name="robots" content="noindex" />}
+  </head>
+
+  <body>
+    <header class="border-b border-border bg-cream/80 backdrop-blur sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a href="/" class="font-display text-2xl text-ink hover:text-accent transition-colors">
+          {brandName}
+        </a>
+        <nav>
+          <ul class="flex gap-8 items-center">
+            {navPages.map(p => (
+              <li>
+                <a
+                  href={pageHref(p.slug)}
+                  class:list={[
+                    "text-sm transition-colors hover:text-accent",
+                    p.id === pageId ? "text-accent" : "text-ink",
+                  ]}
+                >
+                  {getString(site, p.navLabelStringId)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {sections.map(section => <Section section={section} site={site} />)}
+    </main>
+
+    <footer class="bg-ink text-cream mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-3">
+        <div>
+          <p class="font-display text-2xl mb-2">{brandName}</p>
+          {tagline && <p class="text-cream/70 text-sm leading-relaxed">{tagline}</p>}
+        </div>
+
+        <div>
+          <h3 class="text-sm uppercase tracking-wide text-cream/60 mb-4">Get in touch</h3>
+          <ul class="space-y-2 text-sm">
+            {contactEmail && <li><a href={`mailto:${contactEmail}`} class="hover:text-accent-tint transition-colors">{contactEmail}</a></li>}
+            {contactPhone && <li><a href={`tel:${contactPhone.replace(/\s/g, "")}`} class="hover:text-accent-tint transition-colors">{contactPhone}</a></li>}
+            {contactAddr  && <li class="text-cream/80">{contactAddr}</li>}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm uppercase tracking-wide text-cream/60 mb-4">Follow</h3>
+          <ul class="space-y-2 text-sm">
+            {site.meta.social.map(sid => {
+              const link = getSocialLink(site, sid);
+              return (
+                <li>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="hover:text-accent-tint transition-colors">
+                    {getString(site, link.handleStringId)}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-cream/10">
+        <div class="max-w-6xl mx-auto px-6 py-6 text-xs text-cream/50">
+          © {new Date().getFullYear()} {brandName}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

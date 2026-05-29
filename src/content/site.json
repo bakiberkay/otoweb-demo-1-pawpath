@@ -1,0 +1,1176 @@
+{
+  "schemaVersion": 1,
+  "id": "pawpath-dogwalking",
+  "i18n": {
+    "canonical": "en",
+    "targets": []
+  },
+  "theme": {
+    "themeName": "soft"
+  },
+  "meta": {
+    "brand": {
+      "nameStringId": "str_brand_name",
+      "taglineStringId": "str_brand_tagline",
+      "logoAssetId": "ast_logo"
+    },
+    "contact": {
+      "emailStringId": "str_contact_email",
+      "phoneStringId": "str_contact_phone"
+    },
+    "social": [
+      "soc_instagram",
+      "soc_facebook"
+    ],
+    "seo": {
+      "defaultTitleStringId": "str_seo_default_title",
+      "defaultDescriptionStringId": "str_seo_default_description",
+      "defaultOgImageAssetId": "ast_og_default"
+    }
+  },
+  "pages": [
+    {
+      "id": "pg_home",
+      "slug": "",
+      "navLabelStringId": "str_nav_home",
+      "sectionIds": [
+        "sec_home_hero",
+        "sec_home_features",
+        "sec_home_gallery",
+        "sec_home_testimonials",
+        "sec_home_cta"
+      ],
+      "editorMeta": {
+        "label": "Home",
+        "showInNav": true
+      }
+    },
+    {
+      "id": "pg_services",
+      "slug": "services",
+      "navLabelStringId": "str_nav_services",
+      "sectionIds": [
+        "sec_services_hero",
+        "sec_services_about",
+        "sec_services_list",
+        "sec_services_faq",
+        "sec_home_cta"
+      ],
+      "editorMeta": {
+        "label": "Services",
+        "showInNav": true
+      }
+    },
+    {
+      "id": "pg_contact",
+      "slug": "contact",
+      "navLabelStringId": "str_nav_contact",
+      "sectionIds": [
+        "sec_contact_hero",
+        "sec_contact_intro",
+        "sec_contact_form"
+      ],
+      "editorMeta": {
+        "label": "Contact",
+        "showInNav": true
+      }
+    }
+  ],
+  "sections": {
+    "sec_home_hero": {
+      "id": "sec_home_hero",
+      "type": "hero",
+      "variant": "centered",
+      "eyebrowStringId": "str_home_hero_eyebrow",
+      "headlineStringId": "str_home_hero_headline",
+      "subheadStringId": "str_home_hero_subhead",
+      "primaryCtaLabelStringId": "str_home_hero_cta_primary",
+      "primaryCtaHref": "/contact",
+      "secondaryCtaLabelStringId": "str_home_hero_cta_secondary",
+      "secondaryCtaHref": "/services",
+      "backgroundAssetId": "ast_home_hero_bg",
+      "editorMeta": {
+        "label": "Home — Hero"
+      }
+    },
+    "sec_home_features": {
+      "id": "sec_home_features",
+      "type": "features",
+      "variant": "grid-3",
+      "headingStringId": "str_home_features_heading",
+      "introStringId": "str_home_features_intro",
+      "featureIds": [
+        "ftr_reliable",
+        "ftr_insured",
+        "ftr_certified"
+      ],
+      "editorMeta": {
+        "label": "Home — Why us"
+      }
+    },
+    "sec_home_gallery": {
+      "id": "sec_home_gallery",
+      "type": "gallery",
+      "variant": "grid",
+      "headingStringId": "str_home_gallery_heading",
+      "galleryItemIds": [
+        "gal_dog1",
+        "gal_dog2",
+        "gal_dog3",
+        "gal_dog4"
+      ],
+      "editorMeta": {
+        "label": "Home — Recent walks"
+      }
+    },
+    "sec_home_testimonials": {
+      "id": "sec_home_testimonials",
+      "type": "testimonials",
+      "variant": "grid",
+      "headingStringId": "str_home_testimonials_heading",
+      "testimonialIds": [
+        "tst_jamie",
+        "tst_priya",
+        "tst_marcus"
+      ],
+      "editorMeta": {
+        "label": "Home — Testimonials"
+      }
+    },
+    "sec_home_cta": {
+      "id": "sec_home_cta",
+      "type": "cta",
+      "variant": "banner",
+      "headingStringId": "str_cta_heading",
+      "bodyStringId": "str_cta_body",
+      "primaryCtaLabelStringId": "str_cta_primary_label",
+      "primaryCtaHref": "/contact",
+      "editorMeta": {
+        "label": "Shared — Footer CTA"
+      }
+    },
+    "sec_services_hero": {
+      "id": "sec_services_hero",
+      "type": "hero",
+      "variant": "centered",
+      "headlineStringId": "str_services_hero_headline",
+      "subheadStringId": "str_services_hero_subhead",
+      "backgroundAssetId": "ast_services_hero_bg",
+      "editorMeta": {
+        "label": "Services — Hero"
+      }
+    },
+    "sec_services_about": {
+      "id": "sec_services_about",
+      "type": "rich-text",
+      "contentStringId": "str_services_about_content",
+      "editorMeta": {
+        "label": "Services — About our approach"
+      }
+    },
+    "sec_services_list": {
+      "id": "sec_services_list",
+      "type": "services",
+      "variant": "cards",
+      "headingStringId": "str_services_list_heading",
+      "introStringId": "str_services_list_intro",
+      "serviceIds": [
+        "svc_walking_30",
+        "svc_walking_60",
+        "svc_drop_in",
+        "svc_overnight"
+      ],
+      "editorMeta": {
+        "label": "Services — Offerings"
+      }
+    },
+    "sec_services_faq": {
+      "id": "sec_services_faq",
+      "type": "faq",
+      "headingStringId": "str_faq_heading",
+      "items": [
+        {
+          "questionStringId": "str_faq_q_areas",
+          "answerStringId": "str_faq_a_areas"
+        },
+        {
+          "questionStringId": "str_faq_q_emergencies",
+          "answerStringId": "str_faq_a_emergencies"
+        },
+        {
+          "questionStringId": "str_faq_q_meet",
+          "answerStringId": "str_faq_a_meet"
+        }
+      ],
+      "editorMeta": {
+        "label": "Services — FAQ"
+      }
+    },
+    "sec_contact_hero": {
+      "id": "sec_contact_hero",
+      "type": "hero",
+      "variant": "centered",
+      "headlineStringId": "str_contact_hero_headline",
+      "editorMeta": {
+        "label": "Contact — Hero"
+      }
+    },
+    "sec_contact_intro": {
+      "id": "sec_contact_intro",
+      "type": "text-block",
+      "variant": "single",
+      "headingStringId": "str_contact_intro_heading",
+      "bodyStringId": "str_contact_intro_body",
+      "editorMeta": {
+        "label": "Contact — Intro"
+      }
+    },
+    "sec_contact_form": {
+      "id": "sec_contact_form",
+      "type": "contact-form",
+      "headingStringId": "str_contact_form_heading",
+      "submitLabelStringId": "str_contact_form_submit",
+      "successMessageStringId": "str_contact_form_success",
+      "errorMessageStringId": "str_contact_form_error",
+      "fields": [
+        {
+          "name": "name",
+          "kind": "text",
+          "labelStringId": "str_contact_form_field_name",
+          "required": true
+        },
+        {
+          "name": "email",
+          "kind": "email",
+          "labelStringId": "str_contact_form_field_email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "kind": "phone",
+          "labelStringId": "str_contact_form_field_phone",
+          "required": false
+        },
+        {
+          "name": "message",
+          "kind": "textarea",
+          "labelStringId": "str_contact_form_field_message",
+          "required": true
+        }
+      ],
+      "routing": {
+        "kind": "netlify-forms",
+        "destination": ""
+      },
+      "editorMeta": {
+        "label": "Contact — Form"
+      }
+    }
+  },
+  "entities": {
+    "testimonials": {
+      "tst_jamie": {
+        "id": "tst_jamie",
+        "quoteStringId": "str_tst_jamie_quote",
+        "authorStringId": "str_tst_jamie_author",
+        "roleStringId": "str_tst_jamie_role"
+      },
+      "tst_priya": {
+        "id": "tst_priya",
+        "quoteStringId": "str_tst_priya_quote",
+        "authorStringId": "str_tst_priya_author",
+        "roleStringId": "str_tst_priya_role"
+      },
+      "tst_marcus": {
+        "id": "tst_marcus",
+        "quoteStringId": "str_tst_marcus_quote",
+        "authorStringId": "str_tst_marcus_author",
+        "roleStringId": "str_tst_marcus_role"
+      }
+    },
+    "services": {
+      "svc_walking_30": {
+        "id": "svc_walking_30",
+        "titleStringId": "str_svc_walking_30_title",
+        "descriptionStringId": "str_svc_walking_30_desc",
+        "priceStringId": "str_svc_walking_30_price",
+        "iconAssetId": "ast_icon_paw"
+      },
+      "svc_walking_60": {
+        "id": "svc_walking_60",
+        "titleStringId": "str_svc_walking_60_title",
+        "descriptionStringId": "str_svc_walking_60_desc",
+        "priceStringId": "str_svc_walking_60_price",
+        "iconAssetId": "ast_icon_paw"
+      },
+      "svc_drop_in": {
+        "id": "svc_drop_in",
+        "titleStringId": "str_svc_drop_in_title",
+        "descriptionStringId": "str_svc_drop_in_desc",
+        "priceStringId": "str_svc_drop_in_price",
+        "iconAssetId": "ast_icon_house"
+      },
+      "svc_overnight": {
+        "id": "svc_overnight",
+        "titleStringId": "str_svc_overnight_title",
+        "descriptionStringId": "str_svc_overnight_desc",
+        "priceStringId": "str_svc_overnight_price",
+        "iconAssetId": "ast_icon_moon"
+      }
+    },
+    "features": {
+      "ftr_reliable": {
+        "id": "ftr_reliable",
+        "titleStringId": "str_ftr_reliable_title",
+        "descriptionStringId": "str_ftr_reliable_desc",
+        "iconAssetId": "ast_icon_clock"
+      },
+      "ftr_insured": {
+        "id": "ftr_insured",
+        "titleStringId": "str_ftr_insured_title",
+        "descriptionStringId": "str_ftr_insured_desc",
+        "iconAssetId": "ast_icon_shield"
+      },
+      "ftr_certified": {
+        "id": "ftr_certified",
+        "titleStringId": "str_ftr_certified_title",
+        "descriptionStringId": "str_ftr_certified_desc",
+        "iconAssetId": "ast_icon_badge"
+      }
+    },
+    "galleryItems": {
+      "gal_dog1": {
+        "id": "gal_dog1",
+        "assetId": "ast_gallery_1",
+        "captionStringId": "str_gal_dog1_caption"
+      },
+      "gal_dog2": {
+        "id": "gal_dog2",
+        "assetId": "ast_gallery_2",
+        "captionStringId": "str_gal_dog2_caption"
+      },
+      "gal_dog3": {
+        "id": "gal_dog3",
+        "assetId": "ast_gallery_3",
+        "captionStringId": "str_gal_dog3_caption"
+      },
+      "gal_dog4": {
+        "id": "gal_dog4",
+        "assetId": "ast_gallery_4",
+        "captionStringId": "str_gal_dog4_caption"
+      }
+    },
+    "socialLinks": {
+      "soc_instagram": {
+        "id": "soc_instagram",
+        "platform": "instagram",
+        "handleStringId": "str_soc_instagram_handle",
+        "url": "https://instagram.com/pawpath"
+      },
+      "soc_facebook": {
+        "id": "soc_facebook",
+        "platform": "facebook",
+        "handleStringId": "str_soc_facebook_handle",
+        "url": "https://facebook.com/pawpath"
+      }
+    }
+  },
+  "strings": {
+    "str_brand_name": {
+      "source": "authored",
+      "canonical": "PawPath",
+      "editorMeta": {
+        "label": "Brand name"
+      }
+    },
+    "str_brand_tagline": {
+      "source": "placeholder",
+      "canonical": "Trusted dog walking in your neighborhood",
+      "editorMeta": {
+        "label": "Brand tagline"
+      }
+    },
+    "str_contact_email": {
+      "source": "placeholder",
+      "canonical": "hello@pawpath.example",
+      "editorMeta": {
+        "label": "Contact email"
+      }
+    },
+    "str_contact_phone": {
+      "source": "placeholder",
+      "canonical": "(555) 010-0123",
+      "editorMeta": {
+        "label": "Contact phone"
+      }
+    },
+    "str_seo_default_title": {
+      "source": "placeholder",
+      "canonical": "PawPath — Trusted dog walking",
+      "editorMeta": {
+        "label": "Default page title"
+      }
+    },
+    "str_seo_default_description": {
+      "source": "placeholder",
+      "canonical": "Friendly, insured dog walkers serving your area.",
+      "editorMeta": {
+        "label": "Default meta description",
+        "maxLength": 160
+      }
+    },
+    "str_nav_home": {
+      "source": "placeholder",
+      "canonical": "Home",
+      "editorMeta": {
+        "label": "Nav: Home"
+      }
+    },
+    "str_nav_services": {
+      "source": "placeholder",
+      "canonical": "Services",
+      "editorMeta": {
+        "label": "Nav: Services"
+      }
+    },
+    "str_nav_contact": {
+      "source": "placeholder",
+      "canonical": "Contact",
+      "editorMeta": {
+        "label": "Nav: Contact"
+      }
+    },
+    "str_home_hero_eyebrow": {
+      "source": "placeholder",
+      "canonical": "Local · Insured · Certified",
+      "editorMeta": {
+        "label": "Home hero — eyebrow"
+      }
+    },
+    "str_home_hero_headline": {
+      "source": "placeholder",
+      "canonical": "Walks your dog actually looks forward to.",
+      "editorMeta": {
+        "label": "Home hero — headline"
+      }
+    },
+    "str_home_hero_subhead": {
+      "source": "placeholder",
+      "canonical": "Small-group and solo walks across the neighborhood, with photo updates after every session.",
+      "editorMeta": {
+        "label": "Home hero — subhead",
+        "multiline": true
+      }
+    },
+    "str_home_hero_cta_primary": {
+      "source": "placeholder",
+      "canonical": "Book a meet & greet",
+      "editorMeta": {
+        "label": "Home hero — primary CTA label"
+      }
+    },
+    "str_home_hero_cta_secondary": {
+      "source": "placeholder",
+      "canonical": "See services",
+      "editorMeta": {
+        "label": "Home hero — secondary CTA label"
+      }
+    },
+    "str_home_features_heading": {
+      "source": "placeholder",
+      "canonical": "Why owners choose us",
+      "editorMeta": {
+        "label": "Home features — heading"
+      }
+    },
+    "str_home_features_intro": {
+      "source": "placeholder",
+      "canonical": "Three things we won't compromise on.",
+      "editorMeta": {
+        "label": "Home features — intro"
+      }
+    },
+    "str_ftr_reliable_title": {
+      "source": "placeholder",
+      "canonical": "On time, every time",
+      "editorMeta": {
+        "label": "Feature 1 — title"
+      }
+    },
+    "str_ftr_reliable_desc": {
+      "source": "placeholder",
+      "canonical": "We arrive within a five-minute window of your booked slot.",
+      "editorMeta": {
+        "label": "Feature 1 — description",
+        "multiline": true
+      }
+    },
+    "str_ftr_insured_title": {
+      "source": "placeholder",
+      "canonical": "Fully insured",
+      "editorMeta": {
+        "label": "Feature 2 — title"
+      }
+    },
+    "str_ftr_insured_desc": {
+      "source": "placeholder",
+      "canonical": "Liability and care, custody & control cover for every walk.",
+      "editorMeta": {
+        "label": "Feature 2 — description",
+        "multiline": true
+      }
+    },
+    "str_ftr_certified_title": {
+      "source": "placeholder",
+      "canonical": "Pet first-aid certified",
+      "editorMeta": {
+        "label": "Feature 3 — title"
+      }
+    },
+    "str_ftr_certified_desc": {
+      "source": "placeholder",
+      "canonical": "Every walker is trained in pet first aid and dog body language.",
+      "editorMeta": {
+        "label": "Feature 3 — description",
+        "multiline": true
+      }
+    },
+    "str_home_gallery_heading": {
+      "source": "placeholder",
+      "canonical": "Recent adventures",
+      "editorMeta": {
+        "label": "Home gallery — heading"
+      }
+    },
+    "str_gal_dog1_caption": {
+      "source": "placeholder",
+      "canonical": "Morning park loop",
+      "editorMeta": {
+        "label": "Gallery image 1 — caption"
+      }
+    },
+    "str_gal_dog2_caption": {
+      "source": "placeholder",
+      "canonical": "Trail day",
+      "editorMeta": {
+        "label": "Gallery image 2 — caption"
+      }
+    },
+    "str_gal_dog3_caption": {
+      "source": "placeholder",
+      "canonical": "Sunny patch",
+      "editorMeta": {
+        "label": "Gallery image 3 — caption"
+      }
+    },
+    "str_gal_dog4_caption": {
+      "source": "placeholder",
+      "canonical": "Post-walk nap energy",
+      "editorMeta": {
+        "label": "Gallery image 4 — caption"
+      }
+    },
+    "str_home_testimonials_heading": {
+      "source": "placeholder",
+      "canonical": "What clients say",
+      "editorMeta": {
+        "label": "Home testimonials — heading"
+      }
+    },
+    "str_tst_jamie_quote": {
+      "source": "placeholder",
+      "canonical": "[Replace with a real client quote]",
+      "editorMeta": {
+        "label": "Testimonial 1 — quote",
+        "multiline": true
+      }
+    },
+    "str_tst_jamie_author": {
+      "source": "placeholder",
+      "canonical": "Client name",
+      "editorMeta": {
+        "label": "Testimonial 1 — author"
+      }
+    },
+    "str_tst_jamie_role": {
+      "source": "placeholder",
+      "canonical": "Owner of a very good dog",
+      "editorMeta": {
+        "label": "Testimonial 1 — role"
+      }
+    },
+    "str_tst_priya_quote": {
+      "source": "placeholder",
+      "canonical": "[Replace with a real client quote]",
+      "editorMeta": {
+        "label": "Testimonial 2 — quote",
+        "multiline": true
+      }
+    },
+    "str_tst_priya_author": {
+      "source": "placeholder",
+      "canonical": "Client name",
+      "editorMeta": {
+        "label": "Testimonial 2 — author"
+      }
+    },
+    "str_tst_priya_role": {
+      "source": "placeholder",
+      "canonical": "Owner of a very good dog",
+      "editorMeta": {
+        "label": "Testimonial 2 — role"
+      }
+    },
+    "str_tst_marcus_quote": {
+      "source": "placeholder",
+      "canonical": "[Replace with a real client quote]",
+      "editorMeta": {
+        "label": "Testimonial 3 — quote",
+        "multiline": true
+      }
+    },
+    "str_tst_marcus_author": {
+      "source": "placeholder",
+      "canonical": "Client name",
+      "editorMeta": {
+        "label": "Testimonial 3 — author"
+      }
+    },
+    "str_tst_marcus_role": {
+      "source": "placeholder",
+      "canonical": "Owner of a very good dog",
+      "editorMeta": {
+        "label": "Testimonial 3 — role"
+      }
+    },
+    "str_cta_heading": {
+      "source": "placeholder",
+      "canonical": "Ready for your dog's new favorite hour of the day?",
+      "editorMeta": {
+        "label": "CTA — heading"
+      }
+    },
+    "str_cta_body": {
+      "source": "placeholder",
+      "canonical": "Book a free meet & greet — no commitment.",
+      "editorMeta": {
+        "label": "CTA — body"
+      }
+    },
+    "str_cta_primary_label": {
+      "source": "placeholder",
+      "canonical": "Get in touch",
+      "editorMeta": {
+        "label": "CTA — primary button label"
+      }
+    },
+    "str_services_hero_headline": {
+      "source": "placeholder",
+      "canonical": "Services that fit your dog and your schedule",
+      "editorMeta": {
+        "label": "Services hero — headline"
+      }
+    },
+    "str_services_hero_subhead": {
+      "source": "placeholder",
+      "canonical": "From quick neighborhood loops to full days out.",
+      "editorMeta": {
+        "label": "Services hero — subhead"
+      }
+    },
+    "str_services_about_content": {
+      "source": "placeholder",
+      "canonical": "## How we work\n\nEvery booking starts with a free meet & greet so we can understand your dog's energy, quirks, and routine. After that, you can book individual walks or set up a recurring weekly schedule.\n\nWe send photo updates after every walk and a short note about how it went.",
+      "editorMeta": {
+        "label": "Services — About content (markdown)",
+        "multiline": true
+      }
+    },
+    "str_services_list_heading": {
+      "source": "placeholder",
+      "canonical": "What we offer",
+      "editorMeta": {
+        "label": "Services list — heading"
+      }
+    },
+    "str_services_list_intro": {
+      "source": "placeholder",
+      "canonical": "All bookings include photo updates and a short post-walk note.",
+      "editorMeta": {
+        "label": "Services list — intro"
+      }
+    },
+    "str_svc_walking_30_title": {
+      "source": "placeholder",
+      "canonical": "30-minute neighborhood walk",
+      "editorMeta": {
+        "label": "Service 1 — title"
+      }
+    },
+    "str_svc_walking_30_desc": {
+      "source": "placeholder",
+      "canonical": "A focused half-hour loop, ideal for senior dogs or quick midday breaks.",
+      "editorMeta": {
+        "label": "Service 1 — description",
+        "multiline": true
+      }
+    },
+    "str_svc_walking_30_price": {
+      "source": "placeholder",
+      "canonical": "$25 per walk",
+      "editorMeta": {
+        "label": "Service 1 — price"
+      }
+    },
+    "str_svc_walking_60_title": {
+      "source": "placeholder",
+      "canonical": "60-minute adventure walk",
+      "editorMeta": {
+        "label": "Service 2 — title"
+      }
+    },
+    "str_svc_walking_60_desc": {
+      "source": "placeholder",
+      "canonical": "A full hour of varied pace, sniff time, and play.",
+      "editorMeta": {
+        "label": "Service 2 — description",
+        "multiline": true
+      }
+    },
+    "str_svc_walking_60_price": {
+      "source": "placeholder",
+      "canonical": "$40 per walk",
+      "editorMeta": {
+        "label": "Service 2 — price"
+      }
+    },
+    "str_svc_drop_in_title": {
+      "source": "placeholder",
+      "canonical": "Drop-in visits",
+      "editorMeta": {
+        "label": "Service 3 — title"
+      }
+    },
+    "str_svc_drop_in_desc": {
+      "source": "placeholder",
+      "canonical": "A 20-minute home visit for feeding, fresh water, and a quick stretch.",
+      "editorMeta": {
+        "label": "Service 3 — description",
+        "multiline": true
+      }
+    },
+    "str_svc_drop_in_price": {
+      "source": "placeholder",
+      "canonical": "$20 per visit",
+      "editorMeta": {
+        "label": "Service 3 — price"
+      }
+    },
+    "str_svc_overnight_title": {
+      "source": "placeholder",
+      "canonical": "Overnight stays",
+      "editorMeta": {
+        "label": "Service 4 — title"
+      }
+    },
+    "str_svc_overnight_desc": {
+      "source": "placeholder",
+      "canonical": "We stay at your home so your dog keeps their routine while you're away.",
+      "editorMeta": {
+        "label": "Service 4 — description",
+        "multiline": true
+      }
+    },
+    "str_svc_overnight_price": {
+      "source": "placeholder",
+      "canonical": "From $95 per night",
+      "editorMeta": {
+        "label": "Service 4 — price"
+      }
+    },
+    "str_faq_heading": {
+      "source": "placeholder",
+      "canonical": "Frequently asked",
+      "editorMeta": {
+        "label": "FAQ — heading"
+      }
+    },
+    "str_faq_q_areas": {
+      "source": "placeholder",
+      "canonical": "Which areas do you cover?",
+      "editorMeta": {
+        "label": "FAQ Q1"
+      }
+    },
+    "str_faq_a_areas": {
+      "source": "placeholder",
+      "canonical": "We cover the immediate neighborhood and a 10-minute drive in any direction. Message us with your address and we'll confirm.",
+      "editorMeta": {
+        "label": "FAQ A1",
+        "multiline": true
+      }
+    },
+    "str_faq_q_emergencies": {
+      "source": "placeholder",
+      "canonical": "What happens in an emergency?",
+      "editorMeta": {
+        "label": "FAQ Q2"
+      }
+    },
+    "str_faq_a_emergencies": {
+      "source": "placeholder",
+      "canonical": "Every walker carries a pet first-aid kit and your vet's details. We call you first, but we'll act fast if something is urgent.",
+      "editorMeta": {
+        "label": "FAQ A2",
+        "multiline": true
+      }
+    },
+    "str_faq_q_meet": {
+      "source": "placeholder",
+      "canonical": "What's a meet & greet like?",
+      "editorMeta": {
+        "label": "FAQ Q3"
+      }
+    },
+    "str_faq_a_meet": {
+      "source": "placeholder",
+      "canonical": "About 20 minutes at your home: we meet your dog, learn the routine, and answer questions. No commitment to book afterward.",
+      "editorMeta": {
+        "label": "FAQ A3",
+        "multiline": true
+      }
+    },
+    "str_contact_hero_headline": {
+      "source": "placeholder",
+      "canonical": "Let's talk about your dog",
+      "editorMeta": {
+        "label": "Contact hero — headline"
+      }
+    },
+    "str_contact_intro_heading": {
+      "source": "placeholder",
+      "canonical": "How to reach us",
+      "editorMeta": {
+        "label": "Contact intro — heading"
+      }
+    },
+    "str_contact_intro_body": {
+      "source": "placeholder",
+      "canonical": "Send us a message and we'll reply the same day. For urgent same-day bookings, please call.",
+      "editorMeta": {
+        "label": "Contact intro — body",
+        "multiline": true
+      }
+    },
+    "str_contact_form_heading": {
+      "source": "placeholder",
+      "canonical": "Send a message",
+      "editorMeta": {
+        "label": "Contact form — heading"
+      }
+    },
+    "str_contact_form_submit": {
+      "source": "placeholder",
+      "canonical": "Send",
+      "editorMeta": {
+        "label": "Contact form — submit label"
+      }
+    },
+    "str_contact_form_success": {
+      "source": "placeholder",
+      "canonical": "Thanks — we'll be in touch shortly.",
+      "editorMeta": {
+        "label": "Contact form — success message"
+      }
+    },
+    "str_contact_form_error": {
+      "source": "placeholder",
+      "canonical": "Something went wrong. Please email us instead.",
+      "editorMeta": {
+        "label": "Contact form — error message"
+      }
+    },
+    "str_contact_form_field_name": {
+      "source": "placeholder",
+      "canonical": "Your name",
+      "editorMeta": {
+        "label": "Form field — name label"
+      }
+    },
+    "str_contact_form_field_email": {
+      "source": "placeholder",
+      "canonical": "Email",
+      "editorMeta": {
+        "label": "Form field — email label"
+      }
+    },
+    "str_contact_form_field_phone": {
+      "source": "placeholder",
+      "canonical": "Phone (optional)",
+      "editorMeta": {
+        "label": "Form field — phone label"
+      }
+    },
+    "str_contact_form_field_message": {
+      "source": "placeholder",
+      "canonical": "Tell us about your dog",
+      "editorMeta": {
+        "label": "Form field — message label"
+      }
+    },
+    "str_soc_instagram_handle": {
+      "source": "placeholder",
+      "canonical": "@pawpath",
+      "editorMeta": {
+        "label": "Instagram handle"
+      }
+    },
+    "str_soc_facebook_handle": {
+      "source": "placeholder",
+      "canonical": "PawPath",
+      "editorMeta": {
+        "label": "Facebook page name"
+      }
+    },
+    "str_alt_logo": {
+      "source": "placeholder",
+      "canonical": "PawPath logo",
+      "editorMeta": {
+        "label": "Alt — logo"
+      }
+    },
+    "str_alt_og_default": {
+      "source": "placeholder",
+      "canonical": "PawPath — trusted dog walking",
+      "editorMeta": {
+        "label": "Alt — default share image"
+      }
+    },
+    "str_alt_home_hero_bg": {
+      "source": "placeholder",
+      "canonical": "A happy dog mid-walk on a leafy street",
+      "editorMeta": {
+        "label": "Alt — home hero background"
+      }
+    },
+    "str_alt_services_hero_bg": {
+      "source": "placeholder",
+      "canonical": "A walker and three dogs in a park",
+      "editorMeta": {
+        "label": "Alt — services hero background"
+      }
+    },
+    "str_alt_icon_paw": {
+      "source": "placeholder",
+      "canonical": "Paw print icon",
+      "editorMeta": {
+        "label": "Alt — paw icon"
+      }
+    },
+    "str_alt_icon_house": {
+      "source": "placeholder",
+      "canonical": "House icon",
+      "editorMeta": {
+        "label": "Alt — house icon"
+      }
+    },
+    "str_alt_icon_moon": {
+      "source": "placeholder",
+      "canonical": "Crescent moon icon",
+      "editorMeta": {
+        "label": "Alt — moon icon"
+      }
+    },
+    "str_alt_icon_clock": {
+      "source": "placeholder",
+      "canonical": "Clock icon",
+      "editorMeta": {
+        "label": "Alt — clock icon"
+      }
+    },
+    "str_alt_icon_shield": {
+      "source": "placeholder",
+      "canonical": "Shield icon",
+      "editorMeta": {
+        "label": "Alt — shield icon"
+      }
+    },
+    "str_alt_icon_badge": {
+      "source": "placeholder",
+      "canonical": "Certification badge icon",
+      "editorMeta": {
+        "label": "Alt — badge icon"
+      }
+    },
+    "str_alt_gallery_1": {
+      "source": "placeholder",
+      "canonical": "A dog mid-stride in a park",
+      "editorMeta": {
+        "label": "Alt — gallery 1"
+      }
+    },
+    "str_alt_gallery_2": {
+      "source": "placeholder",
+      "canonical": "A dog on a wooded trail",
+      "editorMeta": {
+        "label": "Alt — gallery 2"
+      }
+    },
+    "str_alt_gallery_3": {
+      "source": "placeholder",
+      "canonical": "A dog in a sunny grass patch",
+      "editorMeta": {
+        "label": "Alt — gallery 3"
+      }
+    },
+    "str_alt_gallery_4": {
+      "source": "placeholder",
+      "canonical": "A sleepy dog after a long walk",
+      "editorMeta": {
+        "label": "Alt — gallery 4"
+      }
+    }
+  },
+  "assets": {
+    "ast_logo": {
+      "id": "ast_logo",
+      "kind": "logo",
+      "intent": "brand-logo",
+      "altTextId": "str_alt_logo",
+      "editorMeta": {
+        "label": "Brand logo",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_og_default": {
+      "id": "ast_og_default",
+      "kind": "image",
+      "intent": "og-default",
+      "altTextId": "str_alt_og_default",
+      "editorMeta": {
+        "label": "Default share image",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_home_hero_bg": {
+      "id": "ast_home_hero_bg",
+      "kind": "image",
+      "intent": "hero-background",
+      "altTextId": "str_alt_home_hero_bg",
+      "editorMeta": {
+        "label": "Home hero background",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_services_hero_bg": {
+      "id": "ast_services_hero_bg",
+      "kind": "image",
+      "intent": "hero-background",
+      "altTextId": "str_alt_services_hero_bg",
+      "editorMeta": {
+        "label": "Services hero background",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_icon_paw": {
+      "id": "ast_icon_paw",
+      "kind": "icon",
+      "intent": "service-icon",
+      "altTextId": "str_alt_icon_paw",
+      "editorMeta": {
+        "label": "Paw icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_icon_house": {
+      "id": "ast_icon_house",
+      "kind": "icon",
+      "intent": "service-icon",
+      "altTextId": "str_alt_icon_house",
+      "editorMeta": {
+        "label": "House icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_icon_moon": {
+      "id": "ast_icon_moon",
+      "kind": "icon",
+      "intent": "service-icon",
+      "altTextId": "str_alt_icon_moon",
+      "editorMeta": {
+        "label": "Moon icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_icon_clock": {
+      "id": "ast_icon_clock",
+      "kind": "icon",
+      "intent": "feature-icon",
+      "altTextId": "str_alt_icon_clock",
+      "editorMeta": {
+        "label": "Clock icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_icon_shield": {
+      "id": "ast_icon_shield",
+      "kind": "icon",
+      "intent": "feature-icon",
+      "altTextId": "str_alt_icon_shield",
+      "editorMeta": {
+        "label": "Shield icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_icon_badge": {
+      "id": "ast_icon_badge",
+      "kind": "icon",
+      "intent": "feature-icon",
+      "altTextId": "str_alt_icon_badge",
+      "editorMeta": {
+        "label": "Badge icon",
+        "replaceableViaAdmin": false
+      }
+    },
+    "ast_gallery_1": {
+      "id": "ast_gallery_1",
+      "kind": "image",
+      "intent": "gallery",
+      "altTextId": "str_alt_gallery_1",
+      "editorMeta": {
+        "label": "Gallery image 1",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_gallery_2": {
+      "id": "ast_gallery_2",
+      "kind": "image",
+      "intent": "gallery",
+      "altTextId": "str_alt_gallery_2",
+      "editorMeta": {
+        "label": "Gallery image 2",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_gallery_3": {
+      "id": "ast_gallery_3",
+      "kind": "image",
+      "intent": "gallery",
+      "altTextId": "str_alt_gallery_3",
+      "editorMeta": {
+        "label": "Gallery image 3",
+        "replaceableViaAdmin": true
+      }
+    },
+    "ast_gallery_4": {
+      "id": "ast_gallery_4",
+      "kind": "image",
+      "intent": "gallery",
+      "altTextId": "str_alt_gallery_4",
+      "editorMeta": {
+        "label": "Gallery image 4",
+        "replaceableViaAdmin": true
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional, resolveAssetUrl } from "../../lib/adapter";
+
+type CTASection = Extract<Section, { type: "cta" }>;
+
+interface Props {
+  section: CTASection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading        = getString(site, section.headingStringId);
+const body           = getStringOptional(site, section.bodyStringId);
+const primaryLabel   = getString(site, section.primaryCtaLabelStringId);
+const secondaryLabel = getStringOptional(site, section.secondaryCtaLabelStringId);
+const bgUrl          = section.backgroundAssetId ? resolveAssetUrl(site, section.backgroundAssetId) : null;
+const variant        = section.variant ?? "centered";
+---
+
+<section class:list={["py-20 md:py-24 px-6", variant === "banner" ? "bg-ink text-cream" : "bg-accent-tint/40"]}>
+  <div class="relative max-w-4xl mx-auto">
+    {bgUrl && (
+      <div
+        class="absolute inset-0 -z-10 rounded-lg opacity-30"
+        style={`background-image: url('${bgUrl}'); background-size: cover; background-position: center;`}
+      />
+    )}
+    <div class:list={[
+      "text-center",
+      variant === "split" ? "md:text-left md:flex md:items-center md:justify-between md:gap-10" : "",
+    ]}>
+      <div class={variant === "split" ? "md:flex-1" : ""}>
+        <h2 class:list={[
+          "text-3xl md:text-4xl mb-4",
+          variant === "banner" ? "text-cream" : "text-ink",
+        ]}>{heading}</h2>
+        {body && (
+          <p class:list={[
+            "max-w-xl mb-8",
+            variant === "split" ? "md:mb-0 md:mr-10" : "mx-auto",
+            variant === "banner" ? "text-cream/80" : "text-muted",
+          ]}>{body}</p>
+        )}
+      </div>
+      <div class:list={["flex gap-3 flex-wrap", variant === "split" ? "" : "justify-center"]}>
+        <a
+          href={section.primaryCtaHref}
+          class:list={[
+            "px-6 py-3 rounded-md font-medium transition-colors shadow-soft",
+            variant === "banner" ? "bg-cream text-ink hover:bg-cream/90" : "bg-accent text-cream hover:bg-accent-dark",
+          ]}
+        >
+          {primaryLabel}
+        </a>
+        {secondaryLabel && section.secondaryCtaHref && (
+          <a
+            href={section.secondaryCtaHref}
+            class:list={[
+              "px-6 py-3 rounded-md font-medium transition-colors border",
+              variant === "banner" ? "border-cream/30 text-cream hover:border-cream" : "border-border text-ink hover:border-accent hover:text-accent",
+            ]}
+          >
+            {secondaryLabel}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

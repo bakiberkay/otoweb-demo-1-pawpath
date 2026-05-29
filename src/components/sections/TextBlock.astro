@@ -1,0 +1,39 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional } from "../../lib/adapter";
+
+type TextBlockSection = Extract<Section, { type: "text-block" }>;
+
+interface Props {
+  section: TextBlockSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const eyebrow       = getStringOptional(site, section.eyebrowStringId);
+const heading       = getString(site, section.headingStringId);
+const body          = getString(site, section.bodyStringId);
+const secondaryBody = getStringOptional(site, section.secondaryBodyStringId);
+const variant       = section.variant ?? "single";
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="max-w-3xl mx-auto">
+    {eyebrow && (
+      <p class="text-accent font-medium tracking-wide uppercase text-xs mb-3">
+        {eyebrow}
+      </p>
+    )}
+    <h2 class="text-3xl md:text-4xl leading-tight mb-6">{heading}</h2>
+
+    {variant === "two-column" && secondaryBody ? (
+      <div class="grid md:grid-cols-2 gap-10 text-muted leading-relaxed">
+        <p>{body}</p>
+        <p>{secondaryBody}</p>
+      </div>
+    ) : (
+      <p class="text-lg text-muted leading-relaxed whitespace-pre-line">{body}</p>
+    )}
+  </div>
+</section>

@@ -1,0 +1,17 @@
+---
+import SiteLayout from "../layouts/Site.astro";
+import { example } from "../content";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = () =>
+  example.pages
+    .filter(p => p.slug !== "")
+    .map(p => ({
+      params: { slug: p.slug },
+      props:  { pageId: p.id },
+    }));
+
+const { pageId } = Astro.props as { pageId: string };
+---
+
+<SiteLayout site={example} pageId={pageId} />

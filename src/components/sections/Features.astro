@@ -1,0 +1,58 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional, getFeature, resolveAssetUrl, resolveAssetAlt } from "../../lib/adapter";
+
+type FeaturesSection = Extract<Section, { type: "features" }>;
+
+interface Props {
+  section: FeaturesSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading = getStringOptional(site, section.headingStringId);
+const intro   = getStringOptional(site, section.introStringId);
+const variant = section.variant ?? "grid-3";
+
+const features = section.featureIds.map(id => {
+  const f = getFeature(site, id);
+  return {
+    id: f.id,
+    title:    getString(site, f.titleStringId),
+    desc:     getString(site, f.descriptionStringId),
+    iconUrl:  f.iconAssetId ? resolveAssetUrl(site, f.iconAssetId) : null,
+    iconAlt:  f.iconAssetId ? resolveAssetAlt(site, f.iconAssetId) : "",
+  };
+});
+
+const gridClass =
+  variant === "grid-2" ? "md:grid-cols-2" :
+  variant === "grid-4" ? "md:grid-cols-2 lg:grid-cols-4" :
+  variant === "list"   ? "md:grid-cols-1 max-w-2xl mx-auto" :
+                         "md:grid-cols-3";
+---
+
+<section class="py-20 md:py-28 px-6 bg-surface">
+  <div class="max-w-6xl mx-auto">
+    {(heading || intro) && (
+      <div class="text-center mb-14 max-w-2xl mx-auto">
+        {heading && <h2 class="text-3xl md:text-4xl mb-3">{heading}</h2>}
+        {intro && <p class="text-muted">{intro}</p>}
+      </div>
+    )}
+    <div class:list={["grid gap-8", gridClass]}>
+      {features.map(f => (
+        <div class="text-center md:text-left">
+          {f.iconUrl && (
+            <div class="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-md bg-accent-tint">
+              <img src={f.iconUrl} alt={f.iconAlt} class="w-7 h-7" />
+            </div>
+          )}
+          <h3 class="text-xl mb-2">{f.title}</h3>
+          <p class="text-muted leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

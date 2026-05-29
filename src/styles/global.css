@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-cream:        #FBF7F2;
+  --color-ink:          #22201E;
+  --color-muted:        #6B6661;
+  --color-border:       #E6DFD6;
+  --color-accent:       #3F7A75;
+  --color-accent-dark:  #2F5C58;
+  --color-accent-tint:  #E8F0EF;
+  --color-surface:      #FFFFFF;
+
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-body:    "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+
+  --shadow-soft: 0 2px 12px rgba(34, 32, 30, 0.04);
+  --shadow-card: 0 4px 24px rgba(34, 32, 30, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background-color: var(--color-accent-tint);
+  color: var(--color-ink);
+}

@@ -1,0 +1,52 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional, getGalleryItem, resolveAssetUrl, resolveAssetAlt } from "../../lib/adapter";
+
+type GallerySection = Extract<Section, { type: "gallery" }>;
+
+interface Props {
+  section: GallerySection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading = getStringOptional(site, section.headingStringId);
+const variant = section.variant ?? "grid";
+
+const items = section.galleryItemIds.map(id => {
+  const item = getGalleryItem(site, id);
+  return {
+    id: item.id,
+    src:     resolveAssetUrl(site, item.assetId),
+    alt:     resolveAssetAlt(site, item.assetId),
+    caption: getStringOptional(site, item.captionStringId),
+  };
+});
+
+const gridClass =
+  variant === "masonry"  ? "md:grid-cols-3 [&_figure:nth-child(3n+2)]:row-span-2" :
+  variant === "carousel" ? "flex overflow-x-auto snap-x snap-mandatory" :
+                           "md:grid-cols-2 lg:grid-cols-4";
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    {heading && (
+      <h2 class="text-3xl md:text-4xl text-center mb-14">{heading}</h2>
+    )}
+    <div class:list={[variant === "carousel" ? "" : "grid", "gap-4", gridClass]}>
+      {items.map(i => (
+        <figure class:list={[
+          "overflow-hidden rounded-md bg-surface border border-border",
+          variant === "carousel" ? "snap-start shrink-0 w-[80%] md:w-[40%]" : "",
+        ]}>
+          <img src={i.src} alt={i.alt} class="w-full aspect-[4/3] object-cover" />
+          {i.caption && (
+            <figcaption class="px-4 py-3 text-sm text-muted">{i.caption}</figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

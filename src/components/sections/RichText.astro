@@ -1,0 +1,22 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString } from "../../lib/adapter";
+import { marked } from "marked";
+
+type RichTextSection = Extract<Section, { type: "rich-text" }>;
+
+interface Props {
+  section: RichTextSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+const content = getString(site, section.contentStringId);
+const html = marked.parse(content, { async: false }) as string;
+// NOTE: rendered HTML is trusted because it comes from our own schema. When
+// client-edited content from /admin lands, sanitize here before set:html.
+---
+
+<section class="py-16 md:py-24 px-6">
+  <div class="prose prose-lg max-w-3xl mx-auto prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-a:text-accent" set:html={html} />
+</section>

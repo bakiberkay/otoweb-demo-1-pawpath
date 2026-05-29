@@ -1,0 +1,56 @@
+---
+import type { Site, Section } from "../../schema";
+import { getString, getStringOptional, getTestimonial, resolveAssetUrl, resolveAssetAlt } from "../../lib/adapter";
+
+type TestimonialsSection = Extract<Section, { type: "testimonials" }>;
+
+interface Props {
+  section: TestimonialsSection;
+  site:    Site;
+}
+
+const { section, site } = Astro.props;
+
+const heading = getStringOptional(site, section.headingStringId);
+const variant = section.variant ?? "grid";
+
+const testimonials = section.testimonialIds.map(id => {
+  const t = getTestimonial(site, id);
+  return {
+    id: t.id,
+    quote:     getString(site, t.quoteStringId),
+    author:    getString(site, t.authorStringId),
+    role:      getStringOptional(site, t.roleStringId),
+    avatarUrl: t.avatarAssetId ? resolveAssetUrl(site, t.avatarAssetId) : null,
+    avatarAlt: t.avatarAssetId ? resolveAssetAlt(site, t.avatarAssetId) : "",
+  };
+});
+
+const gridClass = variant === "quote-stack"
+  ? "grid-cols-1 max-w-2xl mx-auto"
+  : "md:grid-cols-3";
+---
+
+<section class="py-20 md:py-28 px-6 bg-accent-tint/30">
+  <div class="max-w-6xl mx-auto">
+    {heading && (
+      <h2 class="text-3xl md:text-4xl text-center mb-14">{heading}</h2>
+    )}
+    <div class:list={["grid gap-6", gridClass]}>
+      {testimonials.map(t => (
+        <blockquote class="bg-surface border border-border rounded-md p-6 shadow-soft flex flex-col">
+          <p class="text-ink leading-relaxed mb-6 font-display italic text-lg">“{t.quote}”</p>
+          <div class="mt-auto flex items-center gap-3">
+            {t.avatarUrl && (
+              <img src={t.avatarUrl} alt={t.avatarAlt} class="w-10 h-10 rounded-full object-cover" />
+            )}
+            <div>
+              <cite class="not-italic text-sm font-medium text-ink">{t.author}</cite>
+              {t.role && <p class="text-xs text-muted">{t.role}</p>}
+            </div>
+          </div>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

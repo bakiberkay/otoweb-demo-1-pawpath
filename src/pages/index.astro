@@ -1,0 +1,9 @@
+---
+import SiteLayout from "../layouts/Site.astro";
+import { example } from "../content";
+
+const home = example.pages.find(p => p.slug === "");
+if (!home) throw new Error("[index] no home page (slug=\"\") in site");
+---
+
+<SiteLayout site={example} pageId={home.id} />
