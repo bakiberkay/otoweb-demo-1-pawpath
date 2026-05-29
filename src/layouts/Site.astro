@@ -59,6 +59,23 @@ const contactAddr  = getStringOptional(site, site.meta.contact.addressStringId);
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
     {page.seo?.noindex && <meta name="robots" content="noindex" />}
+
+    {/* Netlify Identity widget — picks up #invite_token / #recovery_token in
+        the URL hash when a user lands here from a Netlify Identity email,
+        and opens the appropriate signup/password modal. Also used by Decap
+        CMS at /admin via the same widget. */}
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </head>
 
   <body>
