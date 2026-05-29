@@ -1,15 +1,15 @@
 {
-  "str_brand_name": "PawPath",
-  "str_brand_tagline": "Trusted dog walking in your neighborhood",
-  "str_contact_email": "hello@pawpath.example",
-  "str_contact_phone": "(555) 010-0123",
-  "str_seo_default_title": "PawPath — Trusted dog walking",
-  "str_seo_default_description": "Friendly, insured dog walkers serving your area.",
-  "str_home_hero_headline": "Walks your dog actually looks forward to.",
-  "str_home_hero_subhead": "Small-group and solo walks across the neighborhood, with photo updates after every session.",
   "str_home_hero_cta_primary": "Book a meet & greet",
+  "str_contact_phone": "(555) 010-0123",
   "str_cta_heading": "Ready for your dog's new favorite hour of the day?",
-  "str_cta_body": "Book a free meet & greet — no commitment.",
+  "str_home_hero_headline": "Walks your dog actually looks forward to.",
+  "str_brand_tagline": "Trusted dog walking in your neighborhood",
+  "str_seo_default_title": "PawPath — Trusted dog walking",
+  "str_contact_hero_headline": "Let's talk about your dog",
+  "str_home_hero_subhead": "Small-group and solo walks across the neighborhood, with photo updates after every session.",
+  "str_seo_default_description": "Friendly, insured dog walkers serving your area.",
+  "str_contact_email": "hello@pawpath.example",
+  "str_brand_name": "PawPath Changed",
   "str_cta_primary_label": "Get in touch",
-  "str_contact_hero_headline": "Let's talk about your dog"
+  "str_cta_body": "Book a free meet & greet — no commitment."
 }
